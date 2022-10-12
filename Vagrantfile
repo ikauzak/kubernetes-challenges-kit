@@ -1,37 +1,42 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-$script = <<-SCRIPT
-wget https://go.dev/dl/go1.19.1.linux-amd64.tar.gz
-tar -xzf go1.19.1.linux-amd64.tar.gz
-mv go /usr/local/
-rm -rf go1.19.1.linux-amd64.tar.gz
-echo "export PATH=$PATH:/usr/local/go/bin" >> /etc/profile
-apt-get install gcc -y
-echo "--- Instalando minikube ---"
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-sudo install minikube-linux-amd64 /usr/local/bin/minikube
-echo "alias kubectl='minikube kubectl --'" >> /etc/profile
-SCRIPT
-
-$minikube = <<-SCRIPT
-minikube config set driver docker
-minikube start -n 3
-SCRIPT
+NUM_WORKER_NODES=2
+IP_NW="192.168.56."
+IP_START=10
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "hashicorp/bionic64"
+  config.vm.provision "shell", env: {"IP_NW" => IP_NW, "IP_START" => IP_START}, inline: <<-SHELL
+      apt-get update -y
+      echo "$IP_NW$((IP_START)) master-node" >> /etc/hosts
+      echo "$IP_NW$((IP_START+1)) worker-node01" >> /etc/hosts
+      echo "$IP_NW$((IP_START+2)) worker-node02" >> /etc/hosts
+  SHELL
 
-  config.vm.network "private_network", type: "dhcp"
+  config.vm.box = "bento/ubuntu-22.04"
+  config.vm.box_check_update = true
 
-  config.vm.provider "virtualbox" do |vb|
-    vb.name = "kubernetes-lab"
-    vb.memory = "6144"
-    vb.cpus = 4
+  config.vm.define "master" do |master|
+    # master.vm.box = "bento/ubuntu-18.04"
+    master.vm.hostname = "master-node"
+    master.vm.network "private_network", ip: IP_NW + "#{IP_START}"
+    master.vm.provider "virtualbox" do |vb|
+        vb.memory = 4048
+        vb.cpus = 2
+    end
+    master.vm.provision "shell", path: "scripts/common.sh"
+    master.vm.provision "shell", path: "scripts/master.sh"
   end
-  config.vm.provision "docker" do |d|
-    d.pull_images "alpine:3.16.2"
+
+  (1..NUM_WORKER_NODES).each do |i|
+
+  config.vm.define "node0#{i}" do |node|
+    node.vm.hostname = "worker-node0#{i}"
+    node.vm.network "private_network", ip: IP_NW + "#{IP_START + i}"
+    node.vm.provider "virtualbox" do |vb|
+        vb.memory = 2048
+        vb.cpus = 1
+    end
+    node.vm.provision "shell", path: "scripts/common.sh"
+    node.vm.provision "shell", path: "scripts/node.sh"
   end
 
-  config.vm.provision "shell", inline: $script
-  config.vm.provision "shell", inline: $minikube, privileged: false
-end
+  end
+end 
