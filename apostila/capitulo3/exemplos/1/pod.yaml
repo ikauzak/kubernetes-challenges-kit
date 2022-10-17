@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: demonstracao
+  name: demonstracao
+spec:
+  containers:
+  - image: nginx:alpine
+    name: demonstracao
+    ports:
+    - containerPort: 80
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always

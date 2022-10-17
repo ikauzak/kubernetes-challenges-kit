@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: daemonset-demonstracao
+  labels:
+    k8s-app: nginx-daemonset
+spec:
+  selector:
+    matchLabels:
+      name: daemonset-demonstracao
+  template:
+    metadata:
+      labels:
+        name: daemonset-demonstracao
+    spec:
+      tolerations:
+      # these tolerations are to have the daemonset runnable on control plane nodes
+      # remove them if your control plane nodes should not run pods
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: nginx
+        image: nginx:alpine

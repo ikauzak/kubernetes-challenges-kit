@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-multi-env-files
+data:
+  ALLOW_ENEMIES: '"true"'
+  DEFAULT_COLOR: purple
+  DEFAULT_ENEMIES: aliens
+  LEVEL: fairlyNice
+  PLAYER_INITIAL_LIVES: "3"

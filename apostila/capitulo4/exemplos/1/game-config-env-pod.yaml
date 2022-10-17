@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: game-config-env-file-demo-pod
+spec:
+  containers:
+    - name: demo
+      image: alpine
+      command: ["sleep", "3600"]
+      env:
+        - name: PLAYER_INITIAL_LIVES
+          valueFrom:
+            configMapKeyRef:
+              name: game-config-env-file
+              key: lives
+        - name: DEFAULT_ENEMIES
+          valueFrom:
+            configMapKeyRef:
+              name: game-config-env-file
+              key: enemies
+        - name: ALLOW_ENEMIES
+          valueFrom:
+            configMapKeyRef:
+              name: game-config-env-file
+              key: allowed

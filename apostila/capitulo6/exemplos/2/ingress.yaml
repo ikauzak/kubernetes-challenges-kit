@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hostname-test
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: test-hostname.cluster.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: test-hostname
+            port:
+              number: 8080
+        path: /
+        pathType: Prefix

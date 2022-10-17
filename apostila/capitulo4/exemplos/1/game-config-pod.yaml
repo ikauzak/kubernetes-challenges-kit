@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: game-config-file-volume-demo-pod
+spec:
+  containers:
+    - name: demo
+      image: alpine
+      command: ["sleep", "3600"]
+      env:
+        - name: GAME_SETTINGS
+          value: "/config/game-settings-normal.config"
+      volumeMounts:
+        - name: game-config
+          mountPath: "/config"
+  volumes:
+    - name: game-config
+      configMap:
+        name: game-config-files

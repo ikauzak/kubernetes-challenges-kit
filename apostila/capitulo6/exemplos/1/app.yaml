@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: test-hostname
+  name: test-hostname
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: test-hostname
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: test-hostname
+    spec:
+      containers:
+      - image: ikauzak/print-hostname:v1
+        name: print-hostname
+        resources: {}
+        ports:
+          - name: access
+            containerPort: 8080
