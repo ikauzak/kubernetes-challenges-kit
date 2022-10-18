@@ -2,8 +2,6 @@ Arquivos de exemplos do diretório `apostila`:
 ```sh
 .
 ├── capítulo-2
-│   ├── 0
-│   │   └── nginx.yaml
 │   └── 1
 │       └── multi-resources.yaml
 ├── capítulo-3
