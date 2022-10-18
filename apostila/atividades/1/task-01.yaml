@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: nginx-lab01
+  name: nginx-lab01
+  namespace: atividade1
+spec:
+  containers:
+  - image: nginx:alpine
+    name: nginx-lab01
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always

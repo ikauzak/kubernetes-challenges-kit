@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: marketplace
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: front-end
+  name: front-end
+  namespace: marketplace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front-end
+  template:
+    metadata:
+      labels:
+        app: front-end
+    spec:
+      containers:
+      - image: nginx:alpine
+        name: front-end
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cart
+  name: cart
+  namespace: marketplace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cart
+  template:
+    metadata:
+      labels:
+        app: cart
+    spec:
+      containers:
+      - image: alpine
+        name: cart
+        command: ["sleep", "3600"]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: self-checkout
+  name: self-checkout
+  namespace: marketplace
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: self-checkout
+  template:
+    metadata:
+      labels:
+        app: self-checkout
+    spec:
+      containers:
+      - image: ngninx:alpine
+        name: self-checkout
