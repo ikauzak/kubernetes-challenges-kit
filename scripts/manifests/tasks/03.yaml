@@ -3,6 +3,12 @@ kind: Namespace
 metadata:
   name: marketplace
 ---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: default
+  namespace: marketplace
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
