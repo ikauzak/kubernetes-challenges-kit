@@ -28,7 +28,7 @@ spec:
         app: kubernetes-docs
     spec:
       containers:
-      - image: ikauzak/kubernetes-course-docs:v1.0.1
+      - image: ikauzak/kubernetes-course-docs:latest
         name: kubernetes-course-docs
         ports:
         - containerPort: 80
