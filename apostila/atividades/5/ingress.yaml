@@ -6,13 +6,13 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: front.cluster.local
+    - host: # hostname da aplicação ex: teste.exemplo.com
     http:
       paths:
       - backend:
           service:
-            name: marketing-svc 
+            name: # Nome do serviço da aplicação frontend marketing 
             port:
-              number: 8000
+              number: # Porta do serviço correspondente
         path: /
         pathType: Prefix
