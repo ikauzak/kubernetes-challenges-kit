@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: poupadev-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: poupadev-api.cluster.local
+    http:
+      paths:
+      - backend:
+          service:
+            name: poupadev
+            port: 
+              number: 80
+        path: /
+        pathType: Prefix
