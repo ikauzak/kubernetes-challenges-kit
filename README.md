@@ -9,6 +9,21 @@ O objetivo é utilizar esse material como um apoio para os alunos que se interes
 Arquivos de exemplos do diretório `apostila`:
 ```sh
 .
+├── atividades
+│   ├── 1
+│   │   └── task-01.yaml
+│   ├── 2
+│   ├── 3
+│   ├── 4
+│   │   ├── order-credentials.yaml
+│   │   └── order-processing.yaml
+│   ├── 5
+│   │   └── ingress.yaml
+│   ├── 6
+│   └── poupadev-api
+│       ├── deploy.yaml
+│       ├── ingress.yaml
+│       └── service.yaml
 ├── capítulo-2
 │   └── 1
 │       └── multi-resources.yaml
@@ -34,7 +49,7 @@ Arquivos de exemplos do diretório `apostila`:
 │   ├── 1
 │   │   └── resources.yaml
 │   └── 2
-│       └── http-probe.yaml
+│       ├── http-probe.yaml
 │       └── probes.yaml
 └── capítulo-6
     ├── 1
