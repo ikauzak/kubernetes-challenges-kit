@@ -16,7 +16,7 @@ spec:
         app: poupadev
     spec:
       containers:
-      - image: ikauzak/poupadev-api:v1.0.0
+      - image: ikauzak/poupadev-api:v1.0.1
         name: poupadev-api
         ports:
           - containerPort: 80
