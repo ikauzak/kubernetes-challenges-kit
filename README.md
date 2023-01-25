@@ -84,3 +84,10 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 ```
 
 3. A partir deste momento, o seu usuário estará autenticado no ambiente para iniciar o laboratório.
+
+4. Crie a sua namespace no cluster para iniciar as atividades:
+
+```
+# kubectl create ns MINHA_NOVA_NAMESPACE
+# kn MINHA_NOVA_NAMESPACE
+```
