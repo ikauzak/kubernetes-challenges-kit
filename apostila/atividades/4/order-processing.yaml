@@ -4,7 +4,6 @@ metadata:
   labels:
     run: order-processing
   name: order-processing
-  namespace: atividade4
 spec:
   containers:
   - image: nginx

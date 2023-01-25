@@ -4,7 +4,6 @@ metadata:
   labels:
     run: nginx-lab01
   name: nginx-lab01
-  namespace: atividade1
 spec:
   containers:
   - image: nginx:alpine
