@@ -62,76 +62,25 @@ Arquivos de exemplos do diretório `apostila`:
 
 ## Laboratório
 
-O laboratório é provisionado utilizando as ferramentas [**Virtual Box**](https://www.virtualbox.org/) e [**Vagrant**](https://www.vagrantup.com/).
+O laboratório é provisionado na nuvem Azure, assim os usuários poderão acessar o ambiente remoto sem a necessidade de dispor de recursos locais para o aprendizado.
 
-É necessário a instalação dessas ferramentas para a criação do laboratório, sigam as instruções de instalação na documentação de cada ferramenta. Ambos são compatíveis com sistemas Windows, Linux e macOS.
+### Acessando o ambiente
 
-### Motivação
-Este laboratório foi criado com o intuito de ganhar tempo, padronização e praticidade na hora de montar o ambiente para aprendizado.
+O ambiente será liberado pelo instrutor somente durante o horário da aula.
 
-### O ambiente
-
-1. VM master: Máquina virtual responsável por gerenciar o cluster Kubernetes.
-2. VM worker-01 e worker-02: Máquinas responsáveis por executar containers no cluster.
-
-### Requisitos
-Para o bom funcionamento do ambiente, os requisistos **minímos** são:
-
-```yaml
-master:
-  memória ram: 4GB
-  vcpu: 2
-  espaço em disco: 10GB
-
-workers (cada):
-  memória ram: 2GB
-  vcpu: 1
-  espaço em disco: 10GB
-```
-
-> Os recursos de memória ram e cpu podem ser alterados no arquivo `Vagrantfile` nas linhas que contenham as indicações `vb.memory` e `vb.cpus`.
-
-Caso o ambiente com 02 workers fique muito pesado para o laboratório, é possível diminuir o número de workers para 01 dentro do arquivo `Vagrantfile`
-
-```rb
-- NUM_WORKER_NODES=2
-+ NUM_WORKER_NODES=1
-```
-
-### Rede
-É importante verificar o bloco de endereço IP que está em uso pelo VirtualBox, por padrão o script utiliza a rede "192.168.56.0/24".
-
-```yaml
-master: 192.168.56.10
-worker-01: 192.168.56.11
-worker-02: 192.168.56.12
-```
-
-### Comandos básicos para gerenciar o laboratório:
-Para a inicialização do ambiente:
+1. Inicialize o container toolbox mapeando o volume deste repositório em `/app`. Este container possui as ferramentas necessárias para o acesso ao laboratório.
 ```sh
-$ vagrant up
+$ docker run -it --rm --network=host -v $(pwd):/app ikauzak/toolbox:latest
 ```
-> O tempo médio da primeira incialização é de 10 a 15 minutos (dependendo da velocidade de conexão com a Internet).
 
-Para acessar o cluster:
+2. Ao acessar o ambiente, faça o `az login` e autentique com as credencias fornecidas pelo instrutor.
 ```sh
-$ vagrant ssh master
+# az login
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XXXXXX to authenticate.
+
+# az aks get-credentials --resource-group NOME_DO_RECURSO --name NOME_DO_CLUSTER
+
+# kubelogin convert-kubeconfig -l azurecli
 ```
 
-Após o acesso ao ambiente, abra o diretório `/vagrant` para começar os execícios.
-```sh
-$ cd /vagrant
-```
-
-Para desligar o ambiente:
-```sh
-$ vagrant halt
-```
-
-Para remoção completa do ambiente:
-```sh
-$ vagrant destroy
-```
-> Esse comando removerá a vm por completa do Virtual Box, no entanto, o conteúdo do diretório `/vagrant` da vm ficará disponível neste diretório de forma intacta.
-
+3. A partir deste momento, o seu usuário estará autenticado no ambiente para iniciar o laboratório.
