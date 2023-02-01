@@ -2,12 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: poupadev
-  name: poupadev
+    app: awesome-social-media
+  name: awesome-social-media-svc
 spec:
   ports:
   - port: 80
     protocol: TCP
     targetPort: 80
   selector:
-    app: poupadev
+    app: awesome-social-media
