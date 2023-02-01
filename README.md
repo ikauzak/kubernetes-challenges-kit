@@ -20,7 +20,7 @@ Arquivos de exemplos do diretório `apostila`:
 │   ├── 5
 │   │   └── ingress.yaml
 │   ├── 6
-│   └── poupadev-api
+│   └── awesome-social-media
 │       ├── deploy.yaml
 │       ├── ingress.yaml
 │       └── service.yaml
