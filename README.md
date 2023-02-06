@@ -92,7 +92,7 @@ Uma segunda opção para autenticação é utilizando um [Service Principal](htt
 
 6. Faça o download do **kubectl** através do [link](https://kubernetes.io/docs/tasks/tools/#kubectl) e siga as instruções do sistema operacional escolhido.
 
-> Caso prefira executar o **kubectl** em container, siga as instruções na sessão [Acessando o ambiente](#Método via container).
+> Caso prefira executar o **kubectl** em container, siga as instruções na sessão [`Acessando o ambiente`](####Método via container).
 > Importante notar que o seu usuário precisa de no mínimo privilégios de `Contributor` na conta Azure.
 ### Ajustes básicos
 
