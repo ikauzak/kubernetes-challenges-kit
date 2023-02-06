@@ -1,2 +1,4 @@
 configs
 .vagrant
+cluster/terraform.tfstate
+cluster/.terraform
