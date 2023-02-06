@@ -191,7 +191,7 @@ $ kubectl get nodes
 $ docker run -it --rm --network=host -v $(pwd):/app ikauzak/toolbox:latest
 ```
 
-2. Ao acessar o ambiente, faça o `az login` e autentique com as credencias fornecidas pelo instrutor.
+2. Faça o `az login` e autentique com as credenciais da sua conta Azure:
 ```sh
 # az login
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XXXXXX to authenticate.
