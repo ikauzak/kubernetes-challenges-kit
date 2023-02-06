@@ -106,7 +106,7 @@ Antes de iniciar o script, precisamos revisar e configurar algumas variáveis:
 
 1. Acesse o diretório `cluster` e localize o arquivo `variables.tf`
 
-2. Substitua os valores **null** das variaveis `cluster_location` e `cluster_resource_group_name`. Por exemplo:
+2. Substitua os valores **null** das váriaveis `cluster_location` e `cluster_resource_group_name`. Por exemplo:
 
 ```terraform
 variable "cluster_location" {
@@ -123,7 +123,7 @@ variable "cluster_resource_group_name" {
 ```
 > Importante destacar que o custo do seu ambiente pode variar conforme a localização do cluster, consulte com mais detalhes sobre as regiões do Azure.
 
-3. A restante das variáveis já estão pré-definidas com valores iniciais para o provisionamento do ambiente. Caso deseje alterar o tamanho das máquinas do cluster, nome ou quantidade de máquinas, você também pode alterar as variáveis que são responsáveis por definirem essa infraestrutra:
+3. A restante das variáveis já estão pré-definidas com valores iniciais para o provisionamento do ambiente. Caso deseje alterar o tamanho das máquinas do cluster, nome ou quantidade de máquinas, você também pode alterar as variáveis que são responsáveis por definirem essa infraestrutura:
 
 ```terraform 
 variable "cluster_name" {
@@ -171,11 +171,11 @@ Provisione o ambiente ao aceitar o comando:
 $ terraform apply
 ```
 
-O laboratório leva em média de 10 minutos para ficar pronto.
+O laboratório leva em média 10 minutos para ficar pronto.
 
 ### IMPORTANTE
 
-Ao terminar os exercícios e os testes, **SEMPRE** destrua o ambiente para evitar gastos desnecessários, pois os recursos utilizados estarão provisionados na **sua conta Azure**.
+Ao terminar os exercícios e os testes, **SEMPRE** destrua o ambiente para evitar gastos desnecessários, pois os recursos utilizados estão provisionados na **sua conta Azure**.
 
 ```sh
 $ terraform destroy
