@@ -96,13 +96,13 @@ Uma segunda opção para autenticação é utilizando um [Service Principal](htt
 
 6. Faça o download do **kubectl** através do [link](https://kubernetes.io/docs/tasks/tools/#kubectl) e siga as instruções do sistema operacional escolhido.
 
-> Caso prefira executar o **kubectl** em container, siga as instruções na sessão [Acessando o ambiente](#método-via-container).
+> Caso prefira executar o **kubectl** em container, siga as instruções na seção [Acessando o ambiente](#método-via-container).
 
 > Importante notar que o seu usuário precisa de no mínimo privilégios de `Contributor` na conta Azure.
 
 ### Ajustes básicos
 
-Antes de iniciar o script, precisamos revisar e reconfigurar algumas variáveis:
+Antes de iniciar o script, precisamos revisar e configurar algumas variáveis:
 
 1. Acesse o diretório `cluster` e localize o arquivo `variables.tf`
 
@@ -186,7 +186,7 @@ $ terraform destroy
 ### Acessando o ambiente
 
 #### Método local
-1. Execute o comando a baixo para resgatar as credenciais do cluster:
+1. Execute o comando abaixo para resgatar as credenciais do cluster:
 
 ```sh
 $ az aks get-credentials --resource-group NOME_DO_RESOURCE_GROUP --name NOME_DO_CLUSTER
