@@ -62,7 +62,11 @@ Arquivos de exemplos do diretório `apostila`:
 
 ## Criação do ambiente
 
-No diretório `cluster`, está um código escrito em **Terraform** para o provisionamento de um cluster Kubernetes básico. A sua inicialização pode ser feita de maneira simples seguindo essas etapas:
+No diretório `cluster`, está um código escrito em **Terraform** para o provisionamento de um cluster Kubernetes básico.
+
+Sempre que terminar os seus estudos, **destrua** o ambiente imediatamente para evitar cobranças extras pelo ambiente sem uso!
+
+A sua inicialização pode ser feita de maneira simples seguindo essas etapas:
 
 ### Pré requisitos
 
@@ -168,6 +172,16 @@ $ terraform apply
 ```
 
 O laboratório leva em média de 10 minutos para ficar pronto.
+
+### IMPORTANTE
+
+Ao terminar os exercícios e os testes, **SEMPRE** destrua o ambiente para evitar gastos desnecessários, pois os recursos utilizados estarão provisionados na **sua conta Azure**.
+
+```sh
+$ terraform destroy
+```
+
+> O intuito do script **Terraform** é justamente recriar o ambiente sempre que necessário com as mesmas configurações iniciais.
 
 ### Acessando o ambiente
 
