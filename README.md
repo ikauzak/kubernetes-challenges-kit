@@ -221,3 +221,12 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 # kubectl create ns MINHA_NOVA_NAMESPACE
 # kn MINHA_NOVA_NAMESPACE
 ```
+
+### Documentação
+
+A documentação Kubernetes pode ser executada através do **docker**:
+
+```sh
+$ docker run -dit --rm -p 8000:80 ikauzak/kubernetes-course-docs:latest
+```
+Em seguida abra a documentação através do navegador utilizando o endereço `http://localhost:8000`.
