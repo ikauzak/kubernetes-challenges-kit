@@ -8,7 +8,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 3.23.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.23.0 |
 
 ## Modules
 
@@ -34,9 +34,9 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cluster_location"></a> [cluster\_location](#input\_cluster\_location) | Nome da localização do cluster e dos recursos. | `string` | n/a | yes |
+| <a name="input_cluster_location"></a> [cluster\_location](#input\_cluster\_location) | Nome da localização do cluster e dos recursos | `string` | `"brazilsouth"` | no |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Nome do cluster a ser criado | `string` | `"mycluster"` | no |
-| <a name="input_cluster_resource_group_name"></a> [cluster\_resource\_group\_name](#input\_cluster\_resource\_group\_name) | Nome do resource group do cluster | `string` | n/a | yes |
+| <a name="input_cluster_resource_group_name"></a> [cluster\_resource\_group\_name](#input\_cluster\_resource\_group\_name) | Nome do resource group do cluster | `string` | `"clustermasuda"` | no |
 | <a name="input_nodepool_max_count"></a> [nodepool\_max\_count](#input\_nodepool\_max\_count) | Máximo de nodes a serem criados no nodepool | `number` | `3` | no |
 | <a name="input_nodepool_min_count"></a> [nodepool\_min\_count](#input\_nodepool\_min\_count) | Minimo de nodes a serem criados no nodepool | `number` | `1` | no |
 | <a name="input_nodepool_vm_size"></a> [nodepool\_vm\_size](#input\_nodepool\_vm\_size) | Tipo de vm do nodepool de sistema padrão | `string` | `"Standard_B4ms"` | no |
