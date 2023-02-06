@@ -66,7 +66,7 @@ No diretório `cluster`, está um código escrito em **Terraform** para o provis
 
 ### Pré requisitos
 
-Para o provisionamento deste ambiente, você precisará instalar o **Terraform** em seu local de trabalho. Para isso, siga as seguintes etapas:
+Para o provisionamento deste ambiente, você precisará instalar o **Terraform** em seu local de trabalho. Siga as seguintes etapas:
 
 1. [Acesse este link](https://developer.hashicorp.com/terraform/downloads) para baixar a versão mais atualizada do **Terraform**.
 
@@ -90,12 +90,10 @@ $ az account list
 
 Uma segunda opção para autenticação é utilizando um [Service Principal](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret) com a permissão de `Contributor`
 
-> Importante notar que o seu usuário precisa de no mínimo privilégios de `Contributor` na conta Azure.
-
 6. Faça o download do **kubectl** através do [link](https://kubernetes.io/docs/tasks/tools/#kubectl) e siga as instruções do sistema operacional escolhido.
 
-> Caso prefira executar o **kubectl** em container, siga as instruções na sessão [Acessando o ambiente](####Método via container).
-
+> Caso prefira executar o **kubectl** em container, siga as instruções na sessão [Acessando o ambiente](#Método via container).
+> Importante notar que o seu usuário precisa de no mínimo privilégios de `Contributor` na conta Azure.
 ### Ajustes básicos
 
 Antes de iniciar o script, precisamos revisar e reconfigurar algumas variáveis:
